@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Thêm danh mục sản phẩm</h2>
+
+    <!-- Hiển thị thông báo thành công hoặc lỗi -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên danh mục</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm danh mục</button>
+    </form>
+
+    <hr>
+    <h4>Danh sách danh mục hiện tại</h4>
+    <ul class="list-group mt-3">
+        {% for category in categories %}
+            <li class="list-group-item">{{ category.name }}</li>
+        {% empty %}
+            <li class="list-group-item">Chưa có danh mục nào.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

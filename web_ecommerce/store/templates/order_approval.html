@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Quản lý đơn hàng</h2>
+
+    <!-- Tabs nav -->
+    <ul class="nav nav-tabs" id="orderTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending" type="button" role="tab" aria-controls="pending" aria-selected="true">
+                Chờ phê duyệt
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shipping" type="button" role="tab" aria-controls="shipping" aria-selected="false">
+                Đang giao
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="delivered-tab" data-bs-toggle="tab" data-bs-target="#delivered" type="button" role="tab" aria-controls="delivered" aria-selected="false">
+                Đã giao
+            </button>
+        </li>
+    </ul>
+
+    <!-- Tabs content -->
+    <div class="tab-content mt-3" id="orderTabsContent">
+
+        <!-- Pending tab -->
+        <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+            {% if orders_to_approve %}
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Khách hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders_to_approve %}
+                        <tr>
+                            <td>#{{ order.id }}</td>
+                            <td>{{ order.customer.user.name }}</td>
+                            <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                            <td>{{ order.total_amount|floatformat:0 }}₫</td>
+                            <td><span class="badge bg-warning text-dark">{{ order.status }}</span></td>
+                            <td>
+                                <form method="post" action="{% url 'approve_order' order.id %}" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-success btn-sm">Phê duyệt</button>
+                                </form>
+                                <form method="post" action="{% url 'cancel_order' order.id %}" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Huỷ</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-info text-center">Không có đơn hàng nào chờ phê duyệt.</div>
+            {% endif %}
+        </div>
+
+        <!-- Shipping tab -->
+        <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="shipping-tab">
+            {% if shipping_orders %}
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Khách hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in shipping_orders %}
+                        <tr>
+                            <td>#{{ order.id }}</td>
+                            <td>{{ order.customer.user.name }}</td>
+                            <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                            <td>{{ order.total_amount|floatformat:0 }}₫</td>
+                            <td><span class="badge bg-info text-dark">{{ order.status }}</span></td>
+                            <td>
+                                <form method="post" action="{% url 'mark_delivered' order.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-primary btn-sm">Đã giao</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-info text-center">Không có đơn hàng đang giao.</div>
+            {% endif %}
+        </div>
+        
+
+        <!-- Delivered tab -->
+        
+        <div class="tab-pane fade" id="delivered" role="tabpanel" aria-labelledby="delivered-tab">
+            {% if delivered_orders %}
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Khách hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in delivered_orders %}
+                        <tr>
+                            <td>#{{ order.id }}</td>
+                            <td>{{ order.customer.user.name }}</td>
+                            <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                            <td>{{ order.total_amount|floatformat:0 }}₫</td>
+                            <td><span class="badge bg-success">Đã giao</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-info text-center">Không có đơn hàng đã giao.</div>
+            {% endif %}
+        </div>
+        
+
+    </div>
+</div>
+{% endblock %}

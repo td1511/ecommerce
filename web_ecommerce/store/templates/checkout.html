@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px;">
+  <h2 style="color: #ee4d2d;">🧾 Xác nhận đơn hàng</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <!-- Địa chỉ giao hàng -->
+    
+    <div class="section">
+      <h3>📍 Địa chỉ giao hàng</h3>
+    
+      <!-- Chọn địa chỉ có sẵn -->
+      {% if addresses %}
+        <label for="address_id">Chọn địa chỉ có sẵn:</label>
+        <select name="address_id" id="address_id" style="width:100%; padding: 8px; border-radius: 6px; margin-bottom: 20px;">
+          <option value="">-- Chọn địa chỉ --</option>
+          {% for address in addresses %}
+            <option value="{{ address.id }}"
+              {% if address.id|stringformat:"s" == request.POST.address_id %}selected{% endif %}>
+              {{ address.street }}, {{ address.ward }}, {{ address.district }}, {{ address.city }}
+            </option>
+          {% endfor %}
+        </select>
+      {% endif %}
+    
+      <p style="margin: 10px 0; font-weight: bold;">Hoặc nhập địa chỉ mới:</p>
+    
+      <div class="form-new-address" id="newAddressFields" style="display: flex; flex-direction: column; gap: 12px;">
+        <div>
+          <label for="city">Tỉnh/Thành phố <span style="color: red">*</span></label>
+          <input type="text" name="city" id="city" placeholder="VD: TP. Hồ Chí Minh"
+                 value="{{ request.POST.city }}" required
+                 style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc;">
+        </div>
+    
+        <div>
+          <label for="district">Quận/Huyện <span style="color: red">*</span></label>
+          <input type="text" name="district" id="district" placeholder="VD: Quận 1"
+                 value="{{ request.POST.district }}" required
+                 style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc;">
+        </div>
+    
+        <div>
+          <label for="ward">Phường/Xã <span style="color: red">*</span></label>
+          <input type="text" name="ward" id="ward" placeholder="VD: Phường Bến Nghé"
+                 value="{{ request.POST.ward }}" required
+                 style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc;">
+        </div>
+    
+        <div>
+          <label for="street">Số nhà, tên đường <span style="color: red">*</span></label>
+          <input type="text" name="street" id="street" placeholder="VD: 123 Lê Lợi"
+                 value="{{ request.POST.street }}" required
+                 style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc;">
+        </div>
+      </div>
+    
+      <br>
+      <p><strong>👤 Thông tin người nhận:</strong></p>
+      <p>Tên: <strong>{{ user_name }}</strong></p>
+      <p>Số điện thoại: <strong>{{ user_phone }}</strong></p>
+    </div>
+    
+    <!-- nếu chọn địa chỉ cũ thì sẽ bỏ required trong giá trị-->
+    <script>
+      const addressSelect = document.getElementById("address_id");
+      const newAddressFields = document.getElementById("newAddressFields");
+    
+      const requiredFields = ["city", "district", "ward", "street"].map(id => document.getElementById(id));
+    
+      function toggleNewAddressFields() {
+        const selected = addressSelect?.value;
+    
+        if (selected) {
+          // Có chọn địa chỉ cũ => ẩn hoặc bỏ required
+          requiredFields.forEach(field => {
+            field.removeAttribute("required");
+          });
+        } else {
+          // Không chọn địa chỉ cũ => yêu cầu nhập địa chỉ mới
+          requiredFields.forEach(field => {
+            field.setAttribute("required", "required");
+          });
+        }
+      }
+    
+      if (addressSelect) {
+        addressSelect.addEventListener("change", toggleNewAddressFields);
+        window.addEventListener("load", toggleNewAddressFields); // khi trang load lại cũng áp dụng đúng
+      }
+    </script>
+    
+    
+    
+    <!-- Phương thức thanh toán -->
+    <div class="section">
+      <h3>💳 Phương thức thanh toán</h3>
+      <select name="payment_method" required style="width:100%; padding: 8px; border-radius: 6px;">
+        <option value="cash" {% if request.POST.payment_method == "cash" %}selected{% endif %}>Thanh toán khi nhận hàng</option>
+        <option value="card" {% if request.POST.payment_method == "card" %}selected{% endif %}>Thẻ ngân hàng</option>
+      </select>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="section">
+      <h3>🛍️ Sản phẩm bạn đã chọn</h3>
+      {% if selected_items %}
+        <table style="width:100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background-color:#f2f2f2;">
+              <th>Ảnh</th>
+              <th>Tên</th>
+              <th>Số lượng</th>
+              <th>Giá</th>
+              <th>Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in selected_items %}
+              <tr>
+                <td>
+
+                  {% if item.product.images.first %}
+                      <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}" style="width:50px; height:50px; object-fit:cover;">
+                  {% else %}
+                      <img src="https://via.placeholder.com/50" alt="No image available" style="width:50px; height:50px; object-fit:cover;">
+                  {% endif %}
+              
+
+                </td>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.price_selling|floatformat:0 }}₫</td>
+                <td>{{ item.subtotal|floatformat:0 }}₫</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <p style="text-align:right; font-size:18px; margin-top:10px;">
+          <strong>Tổng cộng: {{ total|floatformat:0 }}₫</strong>
+        </p>
+      {% else %}
+        <p>Không có sản phẩm nào được chọn trong giỏ hàng.</p>
+      {% endif %}
+    </div>
+
+    <button type="submit" style="background-color:#ee4d2d; color:white; padding:12px 24px; border:none; border-radius:8px; float:right;">Xác nhận đặt hàng</button>
+    <div style="clear:both;"></div>
+  </form>
+</div>
+{% endblock %}

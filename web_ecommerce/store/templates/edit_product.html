@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Chỉnh sửa sản phẩm{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow p-4 rounded-4">
+        <h3 class="text-center text-primary mb-4">✏️ Chỉnh sửa sản phẩm</h3>
+        
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Tên sản phẩm</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ form.name.value|default:product.name }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Mô tả</label>
+                <textarea name="description" id="description" class="form-control" rows="3">{{ form.description.value|default:product.description }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="brand" class="form-label">Thương hiệu</label>
+                <input type="text" name="brand" id="brand" class="form-control" value="{{ form.brand.value|default:product.brand }}">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="price_purchase" class="form-label">Giá mua</label>
+                    <input type="number" name="price_purchase" id="price_purchase" class="form-control" value="{{ form.price_purchase.value|default:product.price_purchase }}">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="price_selling" class="form-label">Giá bán</label>
+                    <input type="number" name="price_selling" id="price_selling" class="form-control" value="{{ form.price_selling.value|default:product.price_selling }}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="quantity_left" class="form-label">Số lượng còn lại</label>
+                    <input type="number" name="quantity_left" id="quantity_left" class="form-control" value="{{ form.quantity_left.value|default:product.quantity_left }}">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="discount" class="form-label">Giảm giá (%)</label>
+                    <input type="number" name="discount" id="discount" class="form-control" value="{{ form.discount.value|default:product.discount }}">
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="category" class="form-label">Danh mục</label>
+                <select name="category" id="category" class="form-select">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}" {% if product.category.id == category.id %}selected{% endif %}>
+                            {{ category.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'product_list' %}" class="btn btn-secondary">⬅️ Quay lại</a>
+                <button type="submit" class="btn btn-success">💾 Lưu thay đổi</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

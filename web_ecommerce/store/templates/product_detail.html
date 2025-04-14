@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+{% load humanize %}
+
+
+
+{% block title %}{{ product.name }}{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Cột ảnh -->
+        <div class="col-md-6">
+            {% if product.images.all %}
+                <!-- Ảnh chính -->
+                <img src="{{ product.images.all.0.image.url }}" class="img-fluid mb-3 border rounded" 
+                     alt="{{ product.name }}" style="max-height: 400px; object-fit: contain;">
+
+                <!-- Danh sách ảnh nhỏ -->
+                <div class="d-flex flex-wrap gap-2">
+                    {% for img in product.images.all %}
+                        <img src="{{ img.image.url }}" alt="Ảnh sản phẩm"
+                             style="height: 80px; width: 80px; object-fit: cover; border: 1px solid #ddd; padding: 3px; cursor: pointer;">
+                    {% endfor %}
+                </div>
+            {% else %}
+                <img src="https://via.placeholder.com/400" class="img-fluid" alt="No Image Available">
+            {% endif %}
+        </div>
+
+        <!-- Cột thông tin sản phẩm -->
+        <div class="col-md-6">
+            <h2 class="mb-3">{{ product.name }}</h2>
+            <p class="text-muted">{{ product.description }}</p>
+
+            <p><strong>Danh mục:</strong> {{ product.category.name }}</p>
+            <p><strong>Thương hiệu:</strong> {{ product.brand }}</p>
+
+            <p class="h4 text-danger mt-3">
+                {{ product.price_selling|floatformat:0|intcomma }}₫
+                {% if product.discount and product.discount > 0 %}
+                    <span class="text-muted small" style="text-decoration: line-through;">
+                        {{ product.price_purchase|floatformat:0|intcomma }}₫
+                    </span>
+                    <span class="badge bg-success">{{ product.discount }}% OFF</span>
+                {% endif %}
+            </p>
+
+            <p>Số lượng còn lại: <strong>{{ product.quantity_left }}</strong></p>
+
+            <!-- Nút thêm vào giỏ hàng -->
+            <form method="POST" action="{% url 'add_to_cart' product.id %}" class="mt-4">
+                {% csrf_token %}
+                <div class="input-group mb-3" style="max-width: 150px;">
+                    <input type="number" name="quantity" class="form-control" value="1" min="1" max="{{ product.quantity_left }}">
+                    <button class="btn btn-warning text-white fw-bold" type="submit">
+                        <i class="bi bi-cart-plus"></i> Thêm vào giỏ hàng
+                    </button>
+                </div>
+            </form>
+
+            <!-- Nút quay lại -->
+            <a href="{% url 'product_list' %}" class="btn btn-outline-secondary mt-3">← Quay lại</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

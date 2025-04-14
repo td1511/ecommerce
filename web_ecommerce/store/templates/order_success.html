@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt hàng thành công</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #fff;
+            padding: 40px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+        h2 {
+            color: #f63;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        .info {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .info strong {
+            color: #333;
+        }
+        .info .value {
+            color: #f63;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #f63;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #d94c1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎉 Đặt hàng thành công!</h2>
+        <p class="message">Cảm ơn bạn đã mua sắm.</p>
+
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 15px;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 12px; border: 1px solid #ddd;">Mã đơn</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Người nhận</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Số điện thoại</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Địa chỉ</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Thanh toán</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Tổng tiền</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Người bán</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">#{{ order.id }}</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">{{ order.customer.user.name }}</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">{{ order.customer.user.telephone }}</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">
+                        {{ order.address.street }}, {{ order.address.ward }},
+                        {{ order.address.district }}, {{ order.address.city }}
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">
+                        {% if order.payment_method == 'cash' %}
+                            Thanh toán khi nhận hàng
+                        {% elif order.payment_method == 'card' %}
+                            Thẻ ngân hàng
+                        {% endif %}
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #ddd; color: #f63; font-weight: bold;">
+                        {{ order.total_amount|floatformat:0 }}đ
+                    </td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">
+                        {% if order.seller %}
+                            {{ order.seller.user.name }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+
+
+        <a href="{% url 'home' %}" class="btn">🛒 Tiếp tục mua sắm</a>
+    </div>
+</body>
+</html>

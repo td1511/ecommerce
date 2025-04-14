@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Bạn có chắc muốn xóa sản phẩm "{{ product.name }}"?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a href="{% url 'product_list' %}" class="btn btn-secondary">Hủy</a>
+</form>
+{% endblock %}

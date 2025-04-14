@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+Đăng ký
+{% endblock title %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4" style="width: 800px;">
+        <h3 class="text-center">Đăng ký tài khoản</h3>
+        
+        
+
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <div class="mb-3">
+                <label for="telephone" class="form-label">Telephone</label>
+                <input type="tel" class="form-control" id="telephone" name="telephone">
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            
+            <div class="mb-3">
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role" id="customer" value="customer" checked>
+                    <label class="form-check-label" for="customer">
+                        Customer
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role" id="seller" value="seller">
+                    <label class="form-check-label" for="seller">
+                        Seller
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mx-auto d-block" style="width: 400px;">Đăng ký</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

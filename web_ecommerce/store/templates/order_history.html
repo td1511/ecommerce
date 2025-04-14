@@ -1,0 +1,33 @@
+<!-- templates/store/order_history.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Lịch sử mua hàng</h2>
+
+  <ul class="nav nav-tabs" id="orderTabs" role="tablist">
+    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#pending">Chờ xác nhận</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#shipping">Đang giao</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#delivered">Đã giao</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#cancelled">Đã huỷ</a></li>
+  </ul>
+
+  <div class="tab-content p-3 border border-top-0">
+    <!-- Pending -->
+    <div class="tab-pane fade show active" id="pending">
+      {% include 'order_tab.html' with orders=pending_orders %}
+    </div>
+    <!-- Shipping -->
+    <div class="tab-pane fade" id="shipping">
+      {% include 'order_tab.html' with orders=shipping_orders %}
+    </div>
+    <!-- Delivered -->
+    <div class="tab-pane fade" id="delivered">
+      {% include 'order_tab.html' with orders=delivered_orders %}
+    </div>
+    <!-- Cancelled -->
+    <div class="tab-pane fade" id="cancelled">
+      {% include 'order_tab.html' with orders=cancelled_orders %}
+    </div>
+  </div>
+</div>
+{% endblock %}

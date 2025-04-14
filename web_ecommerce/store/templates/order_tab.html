@@ -1,0 +1,26 @@
+<!-- templates/store/order_tab.html -->
+{% if orders %}
+  {% for order in orders %}
+    <div class="card mb-2">
+      <div class="card-body">
+        <strong>Đơn hàng #{{ order.id }}</strong><br>
+        Ngày đặt: {{ order.created_at|date:"d/m/Y H:i" }}<br>
+        Tổng tiền: {{ order.total_amount|floatformat:0 }} đ<br>
+        Trạng thái: <span class="badge bg-info text-dark">{{ order.get_status_display }}</span>
+        
+        {% if order.status == 'pending' %}
+        <!-- Nút huỷ chỉ hiển thị nếu đơn hàng đang chờ xử lý -->
+        <form method="post" action="{% url 'cancel_order' order.id %}" class="mt-2">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Huỷ đơn hàng</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+    
+  {% endfor %}
+{% else %}
+  <p>Không có đơn hàng nào.</p>
+{% endif %}
+
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trang chủ</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    .navbar {
+      background-color: #f85606;
+    }
+    .navbar .nav-link, .navbar .dropdown-toggle, .navbar .dropdown-item {
+      color: white !important;
+    }
+    .navbar .dropdown-menu {
+      background-color: white;
+    }
+    .navbar .dropdown-item:hover {
+      background-color: #f8f9fa;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: white !important;
+    }
+    .toast-container {
+      z-index: 1055;
+    }
+    .badge.bg-danger {
+      font-size: 0.75rem;
+    }
+    .nav-item .bi-person-circle,
+    .nav-item .bi-cart3 {
+      font-size: 1.5rem;
+    }
+
+    .dropdown-menu {
+        background-color:rgb(80, 62, 238) !important;  
+        color: #000 !important;                /* Màu chữ đen */
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+    
+      .dropdown-item {
+        color: #000 !important;                /* Chữ rõ hơn */
+        padding: 10px 16px;
+        transition: background-color 0.3s;
+      }
+    
+      .dropdown-item:hover {
+        background-color: #ffd7b5 !important;  /* Màu khi hover */
+        color: #000 !important;
+      }
+  </style>
+</head>
+
+<body>
+  <!-- Toast Notifications -->
+  <div class="position-fixed bottom-0 end-0 p-3 toast-container">
+    {% for message in messages %}
+      <div class="toast align-items-center text-white bg-{{ message.tags }} border-0 show" role="alert">
+        <div class="d-flex">
+          <div class="toast-body">
+            {{ message }}
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Navbar Shop Style -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Trang chủ</a>
+          </li>
+
+          <!-- Danh mục -->
+          {% if request.session.role != 'seller' %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Danh mục</a>
+            <ul class="dropdown-menu">
+              {% for category in categories %}
+                <li>
+                  <a class="dropdown-item" href="{% url 'product_list' %}?category={{ category.id }}">
+                    {{ category.name }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+
+          <!-- Lịch sử mua hàng -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'order_history' %}">Lịch sử mua hàng</a>
+          </li>
+
+          {% elif request.session.role == 'seller' %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product_list' %}">Danh mục</a>
+          </li>
+
+          <!-- Phê duyệt đơn hàng -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'order_history' %}">Phê duyệt đơn hàng</a>
+          </li>
+          {% endif %}
+
+
+          <!-- Seller - Thêm sản phẩm -->
+          {% if request.session.user_name and request.session.role == 'seller' %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product_add' %}">Thêm sản phẩm</a>
+          </li>
+          {% endif %}
+        </ul>
+
+        <!-- Tìm kiếm -->
+        <form class="d-flex me-3" method="GET" action="{% url 'product_list' %}">
+          {% csrf_token %}
+          <input class="form-control" type="search" name="q" placeholder="Tìm kiếm..." value="{{ query }}">
+        </form>
+
+        <!-- Giỏ hàng và tài khoản -->
+        <ul class="navbar-nav align-items-center">
+          <!-- Giỏ hàng -->
+          <li class="nav-item position-relative me-3">
+            <a class="nav-link" href="{% url 'cart_detail' %}">
+              <i class="bi bi-cart3"></i>
+              {% with request.session.cart as cart %}
+                {% if cart %}
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {{ cart|length }}
+                </span>
+                {% endif %}
+              {% endwith %}
+            </a>
+          </li>
+
+          <!-- Người dùng -->
+          {% if request.session.user_name %}
+            <li class="nav-item me-3">
+              <a class="nav-link" href="#"><i class="bi bi-person-circle"></i> {{ request.session.user_name }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a>
+            </li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'logup' %}">Đăng ký</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Đăng nhập</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Nội dung -->
+  <main class="container my-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

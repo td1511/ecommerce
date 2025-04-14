@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Đăng nhập
+{% endblock title %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4" style="width: 400px;">
+        <h3 class="text-center">Đăng nhập</h3>
+
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                <div class="alert alert-info">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+
+        
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="telephone" class="form-label">Telephone</label>
+                <input type="tel" class="form-control" id="telephone" name="telephone">
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+
+            <div style="margin-top: 10px;">
+                <a href="{% url 'password_reset' %}">Bạn đã quên mật khẩu?</a><br>
+                <span>Bạn chưa có tài khoản? <a href="{% url 'logup' %}">Đăng ký</a></span>
+            </div>
+        </form>
+        
+    </div>
+</div>
+{% endblock content %}

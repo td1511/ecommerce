@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ hàng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #ee4d2d;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-update {
+      background-color: #ff9f00;
+      color: white;
+    }
+
+    .btn-remove {
+      background-color: #ff424f;
+      color: white;
+    }
+
+    .qty-control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .qty-control input {
+      width: 40px;
+      text-align: center;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ee4d2d;
+    }
+
+    .btn-buy {
+      background-color: #ee4d2d;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 Giỏ hàng của bạn</h1>
+
+    {% if items %}
+    <form method="post" action="{% url 'update_cart' %}">
+      {% csrf_token %}
+      <table>
+        <thead>
+          <tr>
+            <th>Ảnh</th>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>
+              {% if item.product.images.first %}
+                  <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}">
+              {% else %}
+                  <img src="https://via.placeholder.com/150" alt="No image available">
+              {% endif %}
+
+            </td>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.product.price_selling|default:0|floatformat:0 }}₫</td>
+            <td>
+              <div class="qty-control">
+                <button type="submit" name="action" value="decrease-{{ item.id }}" class="btn">-</button>
+                <input type="text" name="quantity-{{ item.id }}" value="{{ item.quantity }}" readonly>
+                <button type="submit" name="action" value="increase-{{ item.id }}" class="btn">+</button>
+              </div>
+            </td>
+            <td>{{ item.subtotal|floatformat:0 }}₫</td>
+            <td>
+              <button type="submit" name="action" value="remove-{{ item.id }}" class="btn btn-remove">Xóa</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+
+    <div class="total">
+      <strong>Tổng cộng: {{ total|floatformat:0 }}₫</strong>
+    </div>
+    <!-- Button mua hàng-->
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="{% url 'checkout' %}" class="btn btn-buy">Mua hàng</a>
+    </div>
+
+    
+    {% else %}
+      <p>🛍️ Giỏ hàng của bạn đang trống.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
+ 
+{% endblock content %}
