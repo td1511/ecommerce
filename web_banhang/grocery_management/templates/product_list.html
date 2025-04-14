@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Tạp Hóa</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="mt-5">
+
+        <div class="container">
+            <div class="mb-5 d-flex justify-content-between align-items-end">
+                <h1>Danh sách sản phẩm</h1>
+                <a href="/create/" class="btn btn-info">Thêm mới</a>
+            </div>
+            {% if messages %}
+                <div class="alert alert-success">
+                    <ul class="mb-0">
+                        {% for item in messages %}
+                            <li>{{item}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>Tên hàng hóa</th>
+                        <th>Giá mua</th>
+                        <th>Giá bán</th>
+                        <th>Số lượng trong kho</th>
+                        <th>Số lượng đã bán</th>
+                        <th>Thao tác</th>
+                        <th>Bán sản phẩm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--đổ dữ liệu từ db vào-->
+                    {% for item in nhung_san_pham%}
+                        <tr>
+                            <td>{{item.name}}</td>
+                            <td>{{item.price_purchase}}</td>
+                            <td>{{item.price_selling}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.quantity_sold}}</td>
+                            <td>
+                                <a href="/update/{{item.id}}/" class="btn btn-info btn-sm">Sửa</a>
+                                <a href="/delete/{{item.id}}/" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
+                            </td>
+                            <td>
+                                <form method="get" action="/sell/{{item.id}}/" class="d-flex justify-content-center">
+                                    <input type="number" name="quantity" class="form-control form-control-sm w-75"
+                                        placeholder="Nhập số lượng" required>
+                                    <button type="submit" class="btn btn-success btn-sm ml-1"
+                                        onclick="return confirm('Xác nhận bán sản phẩm này?')">Bán</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                    {%endfor%}
+
+                </tbody>
+            </table>
+            <div class="text-right mt-4">
+                <h5>Tổng doanh thu: {{doanh_thu}}</h5>
+                <h5>Tổng lợi nhuận: {{loi_nhuan}}</h5>
+            </div>
+        </div>
+
+    </div>
+    <!-- Scripts for Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
