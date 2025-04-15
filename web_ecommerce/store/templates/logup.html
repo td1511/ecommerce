@@ -8,18 +8,6 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4" style="width: 800px;">
         <h3 class="text-center">Đăng ký tài khoản</h3>
-        
-        
-
-        {% if messages %}
-        <div>
-            {% for message in messages %}
-            <div class="alert alert-info">
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
 
         <form method="post">
             {% csrf_token %}
@@ -31,7 +19,8 @@
 
             <div class="mb-3">
                 <label for="telephone" class="form-label">Telephone</label>
-                <input type="tel" class="form-control" id="telephone" name="telephone">
+                <input type="tel" class="form-control" id="telephone" name="telephone" required pattern="[0-9]{10,11}" maxlength="10" minlength="10" title="Vui lòng nhập đúng sdt"
+                placeholder="VD: 0912345678">
             </div>
             
             <div class="mb-3">

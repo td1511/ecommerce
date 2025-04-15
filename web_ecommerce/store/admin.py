@@ -1,5 +1,5 @@
 from django.contrib import admin
-from numpy import product
+
 
 # Register your models here.
 from .models import User, Customer, Category, Product, Address, Order, OrderItem, Cart,CartItem,ProductImage # Import model

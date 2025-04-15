@@ -22,17 +22,25 @@ def logup_view(request):
         password = request.POST.get("password")
         role = request.POST.get("role")  # Lấy thông tin vai trò
 
+        if not telephone.isdigit() and len(telephone) != 10:
+            messages.error(request, 'Số điện thoại phải là 10 chữ số!')
+            return render(request, 'logup.html')
         # Kiểm tra các giá trị hợp lệ
-        if not name or not email or not password or not role:
+        if not name or not email or not password or not role or not telephone:
             
             messages.error(request, 'Vui lòng điền đầy đủ thông tin!')
             return render(request, 'logup.html')  # Khi có lỗi, trả về lại trang đăng ký
+        
         # Kiểm tra xem email đã tồn tại chưa
         if User.objects.filter(email=email).exists():
             
             messages.error(request, 'Email đã tồn tại, vui lòng chọn email khác!')
             return render(request, 'logup.html')  # Khi có lỗi, trả về lại trang đăng ký
 
+        if User.objects.filter(telephone=telephone).exists():
+            
+            messages.error(request, 'Telephone đã tồn tại, vui lòng chọn telephone khác!')
+            return render(request, 'logup.html')  # Khi có lỗi, trả về lại trang đăng ký
         try:
             # Lưu dữ liệu vào cơ sở dữ liệu với mật khẩu được mã hóa
             user = User(
@@ -49,10 +57,11 @@ def logup_view(request):
             if role == 'customer':
                 customer = Customer(user=user)
                 customer.save()
-            messages.success(request, 'Đăng ký thành công! Bạn có thể đăng nhập ngay.')
-            return render(request, 'home.html')  # Đăng ký thành công, chuyển đến trang home
-        except IntegrityError:  # Xử lý lỗi email trùng lặp trong trường hợp bất ngờ
-            messages.error(request, 'Email này đã được đăng ký!')
+            messages.success(request, 'Đăng ký thành công!')
+            return render(request, 'login.html')  # Đăng ký thành công, chuyển đến trang home
+        
+        except IntegrityError:  # Xử lý lỗi email/sdt trùng lặp trong trường hợp bất ngờ
+            messages.error(request, 'Thông tin đăng ký lỗi!')
             return render(request, 'logup.html')
     # Hiển thị biểu mẫu khi truy cập GET
     return render(request, 'logup.html')  # để hiển thị trang khi GET
