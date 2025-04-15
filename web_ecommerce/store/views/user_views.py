@@ -88,18 +88,15 @@ def login_view(request):
             else:
                 # Sai mật khẩu
                 messages.error(request, 'Sai mật khẩu!')
-                return redirect('login')  # dùng redirect thay vì render
-
+                return render(request, 'login.html')
                 
         except User.DoesNotExist:
             
             messages.error(request, 'Số điện thoại không tồn tại!')
-            return redirect('login')  # dùng redirect thay vì render
-
+            return render(request, 'login.html')
             
         
-    return redirect('login')  # dùng redirect thay vì render
-  # để hiển thị trang khi GET
+    return render(request, 'login.html')  # để hiển thị trang khi GET
 
 
 
