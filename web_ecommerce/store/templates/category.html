@@ -4,14 +4,7 @@
 <div class="container mt-5">
     <h2>Thêm danh mục sản phẩm</h2>
 
-    <!-- Hiển thị thông báo thành công hoặc lỗi -->
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-info">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-
-    <form method="POST" action="">
+    <form method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label for="name" class="form-label">Tên danh mục</label>
