@@ -58,7 +58,8 @@ def logup_view(request):
                 customer = Customer(user=user)
                 customer.save()
             messages.success(request, 'Đăng ký thành công!')
-            return render(request, 'login.html')  # Đăng ký thành công, chuyển đến trang home
+            return redirect('login')  # dùng redirect thay vì render
+  # Đăng ký thành công, chuyển đến trang home
         
         except IntegrityError:  # Xử lý lỗi email/sdt trùng lặp trong trường hợp bất ngờ
             messages.error(request, 'Thông tin đăng ký lỗi!')
@@ -87,15 +88,18 @@ def login_view(request):
             else:
                 # Sai mật khẩu
                 messages.error(request, 'Sai mật khẩu!')
-                return render(request, 'login.html')
+                return redirect('login')  # dùng redirect thay vì render
+
                 
         except User.DoesNotExist:
             
             messages.error(request, 'Số điện thoại không tồn tại!')
-            return render(request, 'login.html')
+            return redirect('login')  # dùng redirect thay vì render
+
             
         
-    return render(request, 'login.html')  # để hiển thị trang khi GET
+    return redirect('login')  # dùng redirect thay vì render
+  # để hiển thị trang khi GET
 
 
 
