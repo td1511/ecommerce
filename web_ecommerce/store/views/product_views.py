@@ -181,12 +181,15 @@ from django.contrib import messages
 
 
 def add_to_cart(request, product_id):
+
+    user_id = request.session.get('user_id')
+    role = request.session.get('role')
+
+    if not user_id or not role:
+        return render(request, 'login.html')
     product = get_object_or_404(Product, id=product_id)
-    
-    
     if product.quantity_left == 0:
         
-            
         messages.error(request, f"Sản phẩm '{product.name}' đã hết hàng.")
         return redirect(request.META.get('HTTP_REFERER', '/'))
         

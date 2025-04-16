@@ -65,7 +65,6 @@ class Product(models.Model):
     price_purchase = models.DecimalField(max_digits=10, decimal_places=2)
     price_selling = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     quantity_sold = models.PositiveIntegerField(default=0, blank=True, null=True)
-
     quantity_left = models.PositiveIntegerField(default=0)
     discount = models.FloatField(default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -86,33 +85,6 @@ class ProductImage(models.Model):
     def __str__(self):
         return f"Ảnh của {self.product.name}"
     
-# 5. Model Order
-'''class Order(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    status = models.CharField(max_length=20, choices=[('pending', 'Pending'), ('shipped', 'Shipped'), ('completed', 'Completed')], default='pending')
-    shipping_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
-    created_at = models.DateTimeField(auto_now_add=True)
-    completed_at = models.DateTimeField(blank=True, null=True)
-    total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
-    payment_status = models.CharField(max_length=20, choices=[('unpaid', 'Unpaid'), ('paid', 'Paid')], default='unpaid')
-    payment_method = models.CharField(max_length=20, choices=[('cash', 'Cash'), ('card', 'Card')], default='cash')
-
-    def __str__(self):
-        return f"Order {self.id} - {self.customer.user.username}"'''
-        
-'''class Address(models.Model):
-    customer = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='addresses')
-    recipient_name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
-    address_line = models.TextField()
-    is_default = models.BooleanField(default=False)  # đánh dấu địa chỉ mặc định
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f"{self.recipient_name} - {self.address_line}"
-    
-'''
 class Address(models.Model):
     customer = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='addresses')
     city = models.CharField(max_length=100, default= '')
@@ -140,7 +112,6 @@ class Order(models.Model):
     ]
 
     customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
-    seller = models.ForeignKey('User', on_delete=models.CASCADE, null=True, blank=True, related_name='seller_orders')  # 👈 Thêm dòng này
     address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True)
     total_amount = models.DecimalField(max_digits=12, decimal_places=2)
     shipping_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0)
@@ -149,6 +120,14 @@ class Order(models.Model):
     payment_method = models.CharField(max_length=20, choices=PAYMENT_METHODS, default='cash')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def sellers(self):
+        # Truy xuất người bán từ các OrderItem
+        sellers_set = set()
+        for item in self.orderitem_set.select_related('product__user').all():
+            if item.product and item.product.user:
+                sellers_set.add(item.product.user.name)
+        return list(sellers_set)
     def __str__(self):
         return f"Order {self.id} - {self.customer.user.name}"
 
@@ -186,8 +165,6 @@ class Order(models.Model):
                 product.quantity_sold += quantity
 
             product.save()
-
-
     
 # 6. Model OrderItem
 class OrderItem(models.Model):
@@ -201,19 +178,27 @@ class OrderItem(models.Model):
         return f"{self.quantity} x {self.product.name} in Order {self.order.id}"
     
 class Cart(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return f"Giỏ hàng của {self.user.name}"
-    
+
+    def total(self):
+        return sum(item.subtotal() for item in self.items.all())
+
+
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
-    
+    created_at = models.DateTimeField(auto_now_add=True)  # Thêm để theo dõi thời gian
+
     def subtotal(self):
         return self.product.price_selling * self.quantity
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name}"
     
 
 

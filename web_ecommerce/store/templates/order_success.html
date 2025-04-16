@@ -87,12 +87,15 @@
                         {{ order.total_amount|floatformat:0 }}đ
                     </td>
                     <td style="padding: 12px; border: 1px solid #ddd;">
-                        {% if order.seller %}
-                            {{ order.seller.user.name }}
+                        {% if order.sellers %}
+                            {% for seller in order.sellers %}
+                                {{ seller }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
                         {% else %}
                             -
                         {% endif %}
                     </td>
+                    
                 </tr>
                 {% endfor %}
             </tbody>

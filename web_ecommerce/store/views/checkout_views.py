@@ -180,7 +180,6 @@ def checkout(request):
             total = Decimal('0')
             order = Order.objects.create(
                 customer=customer,
-                seller=seller,  # đảm bảo model Order có field này
                 address=address,
                 total_amount=0,
                 shipping_fee=Decimal('0'),
@@ -260,9 +259,13 @@ def checkout(request):
 def manage_orders(request):
     status = request.GET.get('status')
     orders = Order.objects.all()
+    
     if status:
         orders = orders.filter(status=status)
-
+    # In ra thông tin để debug
+    
+    
+    
     return render(request, 'orders/manage_orders.html', {
         'orders': orders,
         'status': status
@@ -270,33 +273,9 @@ def manage_orders(request):
     
 
 
-'''def order_history(request):
-    user_id = request.session.get('user_id')
-    role = request.session.get('role')
 
-    # Kiểm tra đăng nhập
-    if not user_id or role != 'customer':
-        return redirect('login')  # Không phải customer thì không được xem
 
-    try:
-        # Tìm customer có liên kết với user_id này
-        customer = Customer.objects.get(user_id=user_id)
-        print(f"[DEBUG] Đăng nhập với user_id={user_id}, tương ứng customer_id={customer.id}")
-    except Customer.DoesNotExist:
-        return render(request, 'error.html', {'message': 'Không tìm thấy thông tin khách hàng!'})
-    # Lọc đơn hàng theo khách hàng này
-    orders = Order.objects.filter(customer=customer).order_by('-created_at')
 
-    context = {
-        'pending_orders': orders.filter(status='pending'),
-        'shipping_orders': orders.filter(status='shipping'),
-        'delivered_orders': orders.filter(status='delivered'),
-        'cancelled_orders': orders.filter(status='cancelled'),
-        'customer': customer,
-    }
-
-    return render(request, 'order_history.html', context)
-    '''
 
 
 def order_history(request):
@@ -304,8 +283,8 @@ def order_history(request):
     role = request.session.get('role')
 
     if not user_id or not role:
-        return redirect('login')
-
+        return render(request, 'login.html')
+    
     if role == 'customer':
         # Xử lý lịch sử đơn hàng của khách hàng
         try:
