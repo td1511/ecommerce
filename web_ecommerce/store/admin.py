@@ -2,11 +2,10 @@ from django.contrib import admin
 
 
 # Register your models here.
-from .models import User, Customer, Category, Product, Address, Order, OrderItem, Cart,CartItem,ProductImage # Import model
+from .models import User, Category, Product, Address, Order, OrderItem, Cart,CartItem,ProductImage # Import model
 
 # Đăng ký model vào admin
 admin.site.register(User)
-admin.site.register(Customer)
 admin.site.register(Category)
 admin.site.register(Address)
 admin.site.register(Order)

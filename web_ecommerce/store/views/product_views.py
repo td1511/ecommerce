@@ -1,88 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from store.forms import ProductForm
-from store.models import Product, Category, User, Cart, CartItem
- # Import model Product
-from django.shortcuts import render, get_object_or_404
-from store.models import Product, ProductImage
-
+from store.models import Product, Category, User, ProductImage
 from django.contrib import messages  # dùng để hiển thị thông báo
 
-
-'''def create_product(request): 
-    if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            product = form.save(commit=False)
-            
-            # Gán người tạo sản phẩm
-            user_id = request.session.get('user_id')
-            if user_id:
-                try:
-                    user = User.objects.get(id=user_id)
-                    product.user = user
-                except User.DoesNotExist:
-                    pass
-            if not product.quantity_sold:
-                product.quantity_sold = 0
-            product.save()
-            return redirect('home')  # Điều hướng về danh sách sản phẩm
-    else:
-        form = ProductForm()
-
-    categories = Category.objects.all()
-
-    return render(request, 'add_product.html', {
-        'form': form,
-        'categories': categories
-    })
-'''
-
-
-def product_list(request):
-    query = request.GET.get('q', '')
-    category_id = request.GET.get('category', '')
-
-    categories = Category.objects.all()
-
-    # Nếu là người bán
-    if request.session.get('user_name') and request.session.get('role') == 'seller':
-        try:
-            user = User.objects.get(name=request.session.get('user_name'))
-        except User.DoesNotExist:
-            user = None
-
-        products = Product.objects.filter(user=user)
-
-        total_revenue = sum((p.price_selling or 0) * (p.quantity_sold or 0) for p in products)
-        total_profit = sum(((p.price_selling or 0) - (p.price_purchase or 0)) * (p.quantity_sold or 0) for p in products)
-
-
-        return render(request, 'product_list_seller.html', {
-            'products': products,
-            'total_revenue': total_revenue,
-            'total_profit': total_profit,
-        })
-
-    # Người dùng thông thường
-    products = Product.objects.all()
-
-    if query:
-        products = products.filter(name__icontains=query)
-
-    if category_id:
-        products = products.filter(category_id=category_id)
-
-    return render(request, 'product_list.html', {
-        'products': products,
-        'categories': categories,
-        'query': query
-    })
-
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    return render(request, 'product_detail.html', {'product': product})
-
-
+# View thêm sản phẩm mới
 def add_product(request):
     if request.method == 'POST':
         # Lấy user_id từ session
@@ -126,58 +47,102 @@ def add_product(request):
     categories = Category.objects.all()
     return render(request, 'add_product.html', {'categories': categories})
 
-'''def add_to_cart(request, product_id):
+
+'''def product_list(request):
+    query = request.GET.get('q', '')
+    category_id = request.GET.get('category', '')
+    
+    categories = Category.objects.all()
+
+    # Nếu là người bán thì đây là hiển thị thành dạnh bảng có doanh thu và lợi nhuận
+    if request.session.get('user_name') and request.session.get('role') == 'seller':
+        try:
+            user = User.objects.get(name=request.session.get('user_name'))
+        except User.DoesNotExist:
+            user = None
+        
+        products = Product.objects.filter(user=user)
+        # lọc sản phẩm 
+        if query:
+            products = products.filter(name__icontains=query)
+
+        
+            
+        total_revenue = sum((p.price_selling or 0) * (p.quantity_sold or 0) for p in products)
+        total_profit = sum(((p.price_selling or 0) - (p.price_purchase or 0)) * (p.quantity_sold or 0) for p in products)
+
+
+        return render(request, 'product_list_seller.html', {
+            'products': products,
+            'total_revenue': total_revenue,
+            'total_profit': total_profit
+            
+        })
+
+    # Người dùng thông thường
+    products = Product.objects.all()
+
+    if query:
+        products = products.filter(name__icontains=query)
+
+    if category_id:
+        products = products.filter(category_id=category_id)
+        
     
     
-    product = get_object_or_404(Product, id=product_id)
-
-    
-    cart = request.session.get('cart', {})  # Lấy giỏ hàng từ session, nếu chưa có thì là dict rỗng
-
-    # Nếu sản phẩm đã có trong giỏ, tăng số lượng lên 1
-    if str(product_id) in cart:
-        cart[str(product_id)]['quantity'] += 1
-    else:
-        cart[str(product_id)] = {
-            'name': product.name,
-            'price': float(product.price_selling),
-            'quantity': 1,
-        }
-
-    request.session['cart'] = cart  # Lưu lại giỏ hàng vào session
-    request.session.modified = True  # Đánh dấu session đã thay đổi
-
-    return redirect('home')  # Chuyển hướng về trang chủ hoặc nơi bạn muốn
-
+    return render(request, 'product_list.html', {
+        'products': products,
+        'categories': categories,
+        'query': query
+    })
 '''
-from django.contrib import messages
 
 
+def product_list(request):
+    query = request.GET.get('q', '')
+    category_id = request.GET.get('category', '')
+    categories = Category.objects.all()
+    products = Product.objects.all()
 
-'''def add_to_cart(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
+    if query:
+        products = products.filter(name__icontains=query)
+
+    if category_id:
+        products = products.filter(category_id=category_id)
+
+    return render(request, 'product_list.html', {
+        'products': products,
+        'categories': categories,
+        'query': query
+    })
+
+# danh sách sản phẩm của shop
+def product_list_seller(request):
+    query = request.GET.get('q', '')
     
-    if product.quantity_left == 0:
-        messages.error(request, f"Sản phẩm '{product.name}' đã hết hàng.")
-        return render(request, '', {'products': Product.objects.all()})
+    # Nếu là người bán thì đây là hiển thị thành dạnh bảng có doanh thu và lợi nhuận
+    if request.session.get('user_name') and request.session.get('role') == 'seller':
+        try:
+            user = User.objects.get(id=request.session['user_id'])
+        except User.DoesNotExist:
+            user = None
+        
+        products = Product.objects.filter(user=user)
+        if query:
+            products = products.filter(name__icontains=query)
+        total_revenue = sum((p.price_selling or 0) * (p.quantity_sold or 0) for p in products)
+        total_profit = sum(((p.price_selling or 0) - (p.price_purchase or 0)) * (p.quantity_sold or 0) for p in products)
 
-    cart = request.session.get('cart', {})
 
-    if str(product_id) in cart:
-        cart[str(product_id)]['quantity'] += 1
-    else:
-        cart[str(product_id)] = {
-            'name': product.name,
-            'price': float(product.price_selling),
-            'quantity': 1,
-        }
+        return render(request, 'product_list_seller.html', {
+            'products': products,
+            'total_revenue': total_revenue,
+            'total_profit': total_profit
+        })
 
-    request.session['cart'] = cart
-    request.session.modified = True
-
-    messages.success(request, f"Đã thêm '{product.name}' vào giỏ hàng.")
-    return render(request, '', {'products': Product.objects.all()})'''
-
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'product_detail.html', {'product': product})
 
 
 def add_to_cart(request, product_id):
@@ -211,11 +176,6 @@ def add_to_cart(request, product_id):
     messages.success(request, f"Đã thêm '{product.name}' vào giỏ hàng.")
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
-
-
-from django.shortcuts import render, get_object_or_404, redirect
-from store.models import Product
-from store.forms import ProductForm
 
 # View sửa sản phẩm
 def edit_product(request, product_id):

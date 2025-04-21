@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
+ 
+  <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trang chủ</title>
 
@@ -90,8 +92,6 @@
             <a class="nav-link" href="{% url 'home' %}">Trang chủ</a>
           </li>
 
-          <!-- Danh mục -->
-          {% if request.session.role != 'seller' %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Danh mục</a>
             <ul class="dropdown-menu">
@@ -110,14 +110,15 @@
             <a class="nav-link" href="{% url 'order_history' %}">Lịch sử mua hàng</a>
           </li>
 
-          {% elif request.session.role == 'seller' %}
+
+          {% if request.session.role == 'seller' %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'product_list' %}">Danh mục</a>
+            <a class="nav-link" href="{% url 'product_list_seller' %}">Sản phẩm của shop bạn</a>
           </li>
 
           <!-- Phê duyệt đơn hàng -->
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'order_history' %}">Phê duyệt đơn hàng</a>
+            <a class="nav-link" href="{% url 'order_approval' %}">Phê duyệt đơn hàng</a>
           </li>
           {% endif %}
 
@@ -154,12 +155,17 @@
 
           <!-- Người dùng -->
           {% if request.session.user_name %}
-            <li class="nav-item me-3">
-              <a class="nav-link" href="#"><i class="bi bi-person-circle"></i> {{ request.session.user_name }}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a>
-            </li>
+          <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i> {{ request.session.user_name }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Đăng xuất</a></li>
+              <!-- Nếu muốn thêm tùy chọn khác, thêm ở đây -->
+            </ul>
+          </li>
+          
+
           {% else %}
             <li class="nav-item"><a class="nav-link" href="{% url 'logup' %}">Đăng ký</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Đăng nhập</a></li>

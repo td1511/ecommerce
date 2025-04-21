@@ -31,7 +31,7 @@ class User(models.Model):
         """Kiểm tra mật khẩu nhập vào có đúng không"""
         return check_password(raw_password, self.password)'''
 
-class Customer(models.Model):
+'''class Customer(models.Model):
     user = models.OneToOneField('User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -47,7 +47,7 @@ class Customer(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"Customer: {self.user.name}"
+        return f"Customer: {self.user.name}"'''
 
 
 class Category(models.Model):
@@ -86,7 +86,7 @@ class ProductImage(models.Model):
         return f"Ảnh của {self.product.name}"
     
 class Address(models.Model):
-    customer = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='addresses')
+    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='addresses')
     city = models.CharField(max_length=100, default= '')
     district = models.CharField(max_length=100, default= '')
     ward = models.CharField(max_length=100,default='')
@@ -111,7 +111,7 @@ class Order(models.Model):
         ('card', 'Thẻ ngân hàng'),
     ]
 
-    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True)
     total_amount = models.DecimalField(max_digits=12, decimal_places=2)
     shipping_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0)
@@ -129,7 +129,7 @@ class Order(models.Model):
                 sellers_set.add(item.product.user.name)
         return list(sellers_set)
     def __str__(self):
-        return f"Order {self.id} - {self.customer.user.name}"
+        return f"Order {self.id} - {self.user.name}"
 
     def save(self, *args, **kwargs):
         # Nếu đơn hàng đã có trong DB thì kiểm tra thay đổi trạng thái

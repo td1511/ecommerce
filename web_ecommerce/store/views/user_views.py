@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from store.models import User, Customer, Product  # Import model User
+from store.models import User, Product  # Import model User
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib import messages
 from django.db import IntegrityError
@@ -54,9 +54,9 @@ def logup_view(request):
             user.save()
 
             # Nếu role là 'customer', tạo đối tượng Customer
-            if role == 'customer':
+            '''if role == 'customer':
                 customer = Customer(user=user)
-                customer.save()
+                customer.save()'''
             messages.success(request, 'Đăng ký thành công!')
             return redirect('login')  # dùng redirect thay vì render
   # Đăng ký thành công, chuyển đến trang home
@@ -83,7 +83,6 @@ def login_view(request):
                 request.session['role'] =user.role
                 messages.success(request, 'Đăng nhập thành công!')
                 return redirect('home')
-                
                 
             else:
                 # Sai mật khẩu

@@ -70,8 +70,8 @@
                 {% for order in orders %}
                 <tr>
                     <td style="padding: 12px; border: 1px solid #ddd;">#{{ order.id }}</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">{{ order.customer.user.name }}</td>
-                    <td style="padding: 12px; border: 1px solid #ddd;">{{ order.customer.user.telephone }}</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">{{ order.user.name }}</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">{{ order.user.telephone }}</td>
                     <td style="padding: 12px; border: 1px solid #ddd;">
                         {{ order.address.street }}, {{ order.address.ward }},
                         {{ order.address.district }}, {{ order.address.city }}
