@@ -1,11 +1,10 @@
 from django.db import models
-from django.conf import settings
-
 # Create your models here.
 from django.contrib.auth.hashers import make_password, check_password
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import AbstractUser
 
-class User(models.Model):
+'''class User(models.Model):
     ROLE_CHOICES = [
         ('seller', 'Seller'),
         ('customer', 'Customer'),
@@ -20,7 +19,29 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)  # Thời gian cập nhật
 
     def __str__(self):
+        return f"{self.name} - {self.get_role_display()}"'''
+        
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+class User(AbstractUser):
+    ROLE_CHOICES = [
+        ('seller', 'Seller'),
+        ('customer', 'Customer'),
+    ]
+
+    username = None  # Bỏ username, vì bạn sẽ dùng telephone để login
+    name = models.CharField(max_length=100)
+    telephone = models.CharField(max_length=15, unique=True)  # Số điện thoại, dùng để đăng nhập
+    email = models.EmailField(unique=True)
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='customer')
+
+    USERNAME_FIELD = 'telephone'  # Sử dụng telephone làm trường đăng nhập
+    REQUIRED_FIELDS = ['name', 'email']  # Các trường yêu cầu khi tạo superuser
+
+    def __str__(self):
         return f"{self.name} - {self.get_role_display()}"
+
 
     '''def set_password(self, raw_password):
         """Mã hóa mật khẩu trước khi lưu"""
@@ -178,7 +199,7 @@ class OrderItem(models.Model):
         return f"{self.quantity} x {self.product.name} in Order {self.order.id}"
     
 class Cart(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField('User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
