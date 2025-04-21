@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'drf_yasg',
 ]
 
-AUTH_USER_MODEL = 'store.User'
 
 
 MIDDLEWARE = [
