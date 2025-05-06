@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce',     # ví dụ: 'my_app_db'
-        'USER': 'root',           # ví dụ: 'root'
+        'USER': 'doan',           # ví dụ: 'root'
         'PASSWORD': 'doan123',       # ví dụ: '123456'
         'HOST': '127.0.0.1',                # hoặc IP nếu là remote nếu tạo user trong mysql là doan@% thì phải nhập ip vì doan@localhost và doan@% là khác nhau
         'PORT': '3306',                     # cổng mặc định của MySQL
