@@ -13,6 +13,8 @@
 
   <!-- Custom CSS -->
   <style>
+    
+
     .navbar {
       background-color: #f85606;
     }
@@ -113,7 +115,7 @@
 
           {% if request.session.role == 'seller' %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'product_list_seller' %}">Sản phẩm của shop bạn</a>
+            <a class="nav-link" href="{% url 'product_list_seller' %}">Sản phẩm của bạn</a>
           </li>
 
           <!-- Phê duyệt đơn hàng -->
@@ -132,11 +134,12 @@
         </ul>
 
         <!-- Tìm kiếm -->
-        <form class="d-flex me-3" method="GET" action="{% url 'product_list' %}">
+        <form class="d-flex me-2" method="GET" action="{% url 'product_list' %}">
           {% csrf_token %}
           <input class="form-control" type="search" name="q" placeholder="Tìm kiếm..." value="{{ query }}">
         </form>
 
+        <!-- Hiển thị số lượng loại mặt hàng-->
         <!-- Giỏ hàng và tài khoản -->
         <ul class="navbar-nav align-items-center">
           <!-- Giỏ hàng -->

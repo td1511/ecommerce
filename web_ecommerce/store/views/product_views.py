@@ -48,56 +48,7 @@ def add_product(request):
     return render(request, 'add_product.html', {'categories': categories})
 
 
-'''def product_list(request):
-    query = request.GET.get('q', '')
-    category_id = request.GET.get('category', '')
-    
-    categories = Category.objects.all()
-
-    # Nếu là người bán thì đây là hiển thị thành dạnh bảng có doanh thu và lợi nhuận
-    if request.session.get('user_name') and request.session.get('role') == 'seller':
-        try:
-            user = User.objects.get(name=request.session.get('user_name'))
-        except User.DoesNotExist:
-            user = None
-        
-        products = Product.objects.filter(user=user)
-        # lọc sản phẩm 
-        if query:
-            products = products.filter(name__icontains=query)
-
-        
-            
-        total_revenue = sum((p.price_selling or 0) * (p.quantity_sold or 0) for p in products)
-        total_profit = sum(((p.price_selling or 0) - (p.price_purchase or 0)) * (p.quantity_sold or 0) for p in products)
-
-
-        return render(request, 'product_list_seller.html', {
-            'products': products,
-            'total_revenue': total_revenue,
-            'total_profit': total_profit
-            
-        })
-
-    # Người dùng thông thường
-    products = Product.objects.all()
-
-    if query:
-        products = products.filter(name__icontains=query)
-
-    if category_id:
-        products = products.filter(category_id=category_id)
-        
-    
-    
-    return render(request, 'product_list.html', {
-        'products': products,
-        'categories': categories,
-        'query': query
-    })
-'''
-
-
+# danh sách sản phẩm hiện thị theo tuwufng category
 def product_list(request):
     query = request.GET.get('q', '')
     category_id = request.GET.get('category', '')
@@ -116,7 +67,7 @@ def product_list(request):
         'query': query
     })
 
-# danh sách sản phẩm của shop
+# danh sách sản phẩm của shop chỉ hiển thị với người bán để biết doanh thu lợi nhuận
 def product_list_seller(request):
     query = request.GET.get('q', '')
     
@@ -140,44 +91,13 @@ def product_list_seller(request):
             'total_profit': total_profit
         })
 
+# chi tiết cho từng sản phẩm 
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'product_detail.html', {'product': product})
 
 
-def add_to_cart(request, product_id):
-
-    user_id = request.session.get('user_id')
-    role = request.session.get('role')
-
-    if not user_id or not role:
-        return render(request, 'login.html')
-    product = get_object_or_404(Product, id=product_id)
-    if product.quantity_left == 0:
-        
-        messages.error(request, f"Sản phẩm '{product.name}' đã hết hàng.")
-        return redirect(request.META.get('HTTP_REFERER', '/'))
-        
-        
-    cart = request.session.get('cart', {})
-
-    if str(product_id) in cart:
-        cart[str(product_id)]['quantity'] += 1
-    else:
-        cart[str(product_id)] = {
-            'name': product.name,
-            'price': float(product.price_selling),
-            'quantity': 1,
-        }
-
-    request.session['cart'] = cart
-    request.session.modified = True
-    
-    messages.success(request, f"Đã thêm '{product.name}' vào giỏ hàng.")
-    return redirect(request.META.get('HTTP_REFERER', '/'))
-
-
-# View sửa sản phẩm
+# View sửa sản phẩm của người bán
 def edit_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
@@ -191,7 +111,7 @@ def edit_product(request, product_id):
 
     return render(request, 'edit_product.html', {'form': form, 'product': product})
 
-# View xóa sản phẩm
+# View xóa sản phẩm của người bán
 def delete_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':

@@ -1,15 +1,13 @@
-from django.shortcuts import render
+
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from store.models import User, Product  # Import model User
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib import messages
 from django.db import IntegrityError
-from django.contrib.auth import login
 
 # Create your views here.
 def home(request):
-    best_sellers = Product.objects.order_by('-quantity_sold')[:15]
+    best_sellers = Product.objects.order_by('-quantity_sold')[:40]
     return render(request, 'home.html', {'best_sellers': best_sellers})
 
 
@@ -67,8 +65,8 @@ def logup_view(request):
     # Hiển thị biểu mẫu khi truy cập GET
     return render(request, 'logup.html')  # để hiển thị trang khi GET
 
+
 def login_view(request):
-    
     if request.method == "POST":
         telephone = request.POST.get('telephone')
         password = request.POST.get('password')
@@ -90,13 +88,10 @@ def login_view(request):
                 return render(request, 'login.html')
                 
         except User.DoesNotExist:
-            
             messages.error(request, 'Số điện thoại không tồn tại!')
             return render(request, 'login.html')
             
-        
     return render(request, 'login.html')  # để hiển thị trang khi GET
-
 
 
 def logout_view(request):

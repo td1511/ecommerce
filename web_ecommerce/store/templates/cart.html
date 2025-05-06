@@ -8,12 +8,7 @@
   <meta charset="UTF-8">
   <title>Giỏ hàng</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-    }
+    
 
     .container {
       max-width: 900px;
@@ -131,11 +126,19 @@
             <td>{{ item.product.price_selling|default:0|floatformat:0 }}₫</td>
             <td>
               <div class="qty-control">
+                <button type="submit" name="action" value="decrease-{{ item.product.id }}" class="btn">-</button>
+                <input type="text" name="quantity-{{ item.product.id }}" value="{{ item.quantity }}" readonly>
+                <button type="submit" name="action" value="increase-{{ item.product.id }}" class="btn">+</button>
+              </div>
+            
+          </td>
+            <!--<td>
+              <div class="qty-control">
                 <button type="submit" name="action" value="decrease-{{ item.id }}" class="btn">-</button>
                 <input type="text" name="quantity-{{ item.id }}" value="{{ item.quantity }}" readonly>
                 <button type="submit" name="action" value="increase-{{ item.id }}" class="btn">+</button>
               </div>
-            </td>
+            </td>-->
             <td>{{ item.subtotal|floatformat:0 }}₫</td>
             <td>
               <button type="submit" name="action" value="remove-{{ item.id }}" class="btn btn-remove">Xóa</button>

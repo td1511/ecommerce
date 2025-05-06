@@ -82,24 +82,19 @@ WSGI_APPLICATION = 'web_ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ecommerce',     # ví dụ: 'my_app_db'
+        'USER': 'root',           # ví dụ: 'root'
+        'PASSWORD': 'doan123',       # ví dụ: '123456'
+        'HOST': '127.0.0.1',                # hoặc IP nếu là remote nếu tạo user trong mysql là doan@% thì phải nhập ip vì doan@localhost và doan@% là khác nhau
+        'PORT': '3306',                     # cổng mặc định của MySQL
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'ECOMMERCE-WEB',
-        'USER': 'sa',
-        'PASSWORD': 'Tdoan123',
-        'HOST': 'DESKTOP-A8C09MQ',
-        'PORT': '1433',  # Sử dụng cổng mặc định nếu không có port tùy chỉnh
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-        },
-    }
-}'''
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

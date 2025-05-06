@@ -1,7 +1,5 @@
 from django.db import models
 # Create your models here.
-from django.contrib.auth.hashers import make_password, check_password
-
 
 class User(models.Model):
     ROLE_CHOICES = [
@@ -21,41 +19,13 @@ class User(models.Model):
         return f"{self.name} - {self.get_role_display()}"
     
 
-    '''def set_password(self, raw_password):
-        """Mã hóa mật khẩu trước khi lưu"""
-        self.password = make_password(raw_password)
-        self.save()
-
-    def check_password(self, raw_password):
-        """Kiểm tra mật khẩu nhập vào có đúng không"""
-        return check_password(raw_password, self.password)'''
-
-'''class Customer(models.Model):
-    user = models.OneToOneField('User', on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def clean(self):
-        """Đảm bảo chỉ user có role là 'buyer' mới được tạo thành Customer"""
-        if self.user.role != 'customer':
-            raise ValidationError("Chỉ có User có role là 'customer' mới được tạo thành Customer")
-
-    def save(self, *args, **kwargs):
-        """Gọi clean() trước khi lưu"""
-        self.clean() # đảm bảo chỉ customer mới được lưu hàm clean này là gọi hàm clean tự định nghĩa
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return f"Customer: {self.user.name}"'''
-
-
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
         return self.name
 
-# 4. Model Product
+
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
@@ -66,6 +36,7 @@ class Product(models.Model):
     quantity_sold = models.PositiveIntegerField(default=0, blank=True, null=True)
     quantity_left = models.PositiveIntegerField(default=0)
     discount = models.FloatField(default=0.0)
+    size = models.CharField(max_length=20, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey('User', on_delete=models.CASCADE, null=True, blank=True, related_name='products_created')
@@ -76,6 +47,7 @@ class Product(models.Model):
     @property
     def status(self):
         return "Còn hàng" if self.quantity_left > 0 else "Hết hàng"
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
@@ -165,7 +137,7 @@ class Order(models.Model):
 
             product.save()
     
-# 6. Model OrderItem
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -177,7 +149,7 @@ class OrderItem(models.Model):
         return f"{self.quantity} x {self.product.name} in Order {self.order.id}"
     
 class Cart(models.Model):
-    user = models.OneToOneField('User', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -188,18 +160,21 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
+    STATUS_CHOICES = [
+        ('active', 'Đang trong giỏ'),
+        ('removed', 'Đã xóa khỏi giỏ'),
+    ]
+
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
-    created_at = models.DateTimeField(auto_now_add=True)  # Thêm để theo dõi thời gian
+    is_selected = models.BooleanField(default=True)  # Được chọn để mua hay không
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def subtotal(self):
         return self.product.price_selling * self.quantity
-
-    def __str__(self):
-        return f"{self.quantity} x {self.product.name}"
-    
-
 
 
 

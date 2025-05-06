@@ -4,7 +4,9 @@ from decimal import Decimal
 from django.utils import timezone
 from django.contrib import messages
 from collections import defaultdict
+from django.views.decorators.http import require_POST
 
+# thông tin về đơn hàng : người mua, người bán , số lượng , địa chỉ
 def checkout(request):
     user_id = request.session.get('user_id')
     role = request.session.get('role')
@@ -131,19 +133,9 @@ def checkout(request):
     })
 
 
-def manage_orders(request):
-    status = request.GET.get('status')
-    orders = Order.objects.all()
-    
-    if status:
-        orders = orders.filter(status=status)
-    
-    return render(request, 'orders/manage_orders.html', {
-        'orders': orders,
-        'status': status
-    })
-    
 
+    
+# lịch sử mua hàng với cả người mua và người bán
 def order_history(request):
     user_id = request.session.get('user_id')
     role = request.session.get('role')
@@ -168,6 +160,7 @@ def order_history(request):
     }
     return render(request, 'order_history.html', context)
 
+# phê duyệt đơn hàng chỉ với người bán
 def order_approval(request):
     user_id = request.session.get('user_id')
     role = request.session.get('role')
@@ -196,16 +189,14 @@ def order_approval(request):
         return redirect('login')
     
 
-from django.views.decorators.http import require_POST
-from django.views.decorators.csrf import csrf_exempt
-
+# để hiển thị từng tab khi phê duyệt đơn hàng/ lịch sử đơn hàng
 @require_POST
 def approve_order(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     order.status = 'shipping'
     order.save()
     messages.success(request, f"Đã phê duyệt đơn hàng #{order.id}.")
-    return redirect('order_history')
+    return redirect('order_approval')
 
 @require_POST
 def cancel_order(request, order_id):
@@ -213,7 +204,7 @@ def cancel_order(request, order_id):
     order.status = 'cancelled'
     order.save()
     messages.warning(request, f"Đã huỷ đơn hàng #{order.id}.")
-    return redirect('order_history')
+    return redirect('order_approval')
 
 @require_POST
 def mark_delivered(request, order_id):
@@ -221,4 +212,4 @@ def mark_delivered(request, order_id):
     order.status = 'delivered'
     order.save()
     messages.success(request, f"Đã giao đơn hàng #{order.id}.")
-    return redirect('order_history')
+    return redirect('order_approval')

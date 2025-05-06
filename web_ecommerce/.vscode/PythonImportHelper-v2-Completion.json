@@ -1,0 +1,1121 @@
+[
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "IntegrityError",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Cart",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "CartItem",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "OrderItem",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Address",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductImage",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "store.models",
+        "description": "store.models",
+        "isExtraImport": true,
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
+        "isExtraImport": true,
+        "detail": "decimal",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "require_POST",
+        "importPath": "django.views.decorators.http",
+        "description": "django.views.decorators.http",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.http",
+        "documentation": {}
+    },
+    {
+        "label": "ProductForm",
+        "importPath": "store.forms",
+        "description": "store.forms",
+        "isExtraImport": true,
+        "detail": "store.forms",
+        "documentation": {}
+    },
+    {
+        "label": "check_password",
+        "importPath": "django.contrib.auth.hashers",
+        "description": "django.contrib.auth.hashers",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.hashers",
+        "documentation": {}
+    },
+    {
+        "label": "make_password",
+        "importPath": "django.contrib.auth.hashers",
+        "description": "django.contrib.auth.hashers",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.hashers",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "constants",
+        "importPath": "django.contrib.messages",
+        "description": "django.contrib.messages",
+        "isExtraImport": true,
+        "detail": "django.contrib.messages",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "store.migrations.0001_initial",
+        "description": "store.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Address',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('city', models.CharField(default='', max_length=100)),",
+        "detail": "store.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "add_to_cart",
+        "kind": 2,
+        "importPath": "store.views.cart_views",
+        "description": "store.views.cart_views",
+        "peekOfCode": "def add_to_cart(request, product_id):\n    user_id = request.session.get('user_id')\n    role = request.session.get('role')\n    if not user_id or not role:\n        messages.warning(request, \"Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.\")\n        return redirect('login')  # hoặc render ra login.html\n    print(user_id)\n    product = get_object_or_404(Product, id=product_id)\n    if product.quantity_left == 0:\n        messages.error(request, f\"Sản phẩm '{product.name}' đã hết hàng.\")",
+        "detail": "store.views.cart_views",
+        "documentation": {}
+    },
+    {
+        "label": "cart_detail",
+        "kind": 2,
+        "importPath": "store.views.cart_views",
+        "description": "store.views.cart_views",
+        "peekOfCode": "def cart_detail(request):\n    cart = request.session.get('cart', {})\n    items = []\n    total = 0\n    for product_id, item_data in cart.items():\n        try:\n            product = Product.objects.get(id=product_id)\n            quantity = item_data.get('quantity', 1)\n            subtotal = product.price_selling * quantity\n            total += subtotal",
+        "detail": "store.views.cart_views",
+        "documentation": {}
+    },
+    {
+        "label": "update_cart",
+        "kind": 2,
+        "importPath": "store.views.cart_views",
+        "description": "store.views.cart_views",
+        "peekOfCode": "def update_cart(request):\n    if request.method == 'POST':\n        cart = request.session.get('cart', {})\n        action = request.POST.get('action')\n        if action:\n            try:\n                action_type, product_id = action.split('-')\n                product_id = str(product_id)\n                product_id_int = int(product_id)  # Dùng cho DB\n            except ValueError:",
+        "detail": "store.views.cart_views",
+        "documentation": {}
+    },
+    {
+        "label": "add_category_view",
+        "kind": 2,
+        "importPath": "store.views.category_views",
+        "description": "store.views.category_views",
+        "peekOfCode": "def add_category_view(request):\n    if request.method == \"POST\":\n        name = request.POST.get('name')\n        if Category.objects.filter(name=name).exists():\n            messages.error(request, \"Danh mục đã tồn tại.\")\n        else:\n            Category.objects.create(name=name)\n            messages.success(request, \"Thêm danh mục thành công.\")\n        return redirect(\"add_category\")  # tên URL\n    categories = Category.objects.all()",
+        "detail": "store.views.category_views",
+        "documentation": {}
+    },
+    {
+        "label": "checkout",
+        "kind": 2,
+        "importPath": "store.views.checkout_views",
+        "description": "store.views.checkout_views",
+        "peekOfCode": "def checkout(request):\n    user_id = request.session.get('user_id')\n    role = request.session.get('role')\n    if not user_id :\n        return redirect('login')\n    try:\n        user = User.objects.get(id=user_id)\n    except User.DoesNotExist:\n        return render(request, 'error.html', {'message': 'Không tìm thấy khách hàng!'})\n    cart = request.session.get('cart', {})",
+        "detail": "store.views.checkout_views",
+        "documentation": {}
+    },
+    {
+        "label": "order_history",
+        "kind": 2,
+        "importPath": "store.views.checkout_views",
+        "description": "store.views.checkout_views",
+        "peekOfCode": "def order_history(request):\n    user_id = request.session.get('user_id')\n    role = request.session.get('role')\n    if not user_id or not role:\n        return render(request, 'login.html')\n    # Xử lý lịch sử đơn hàng của khách hàng và người bán mua của người khác\n    try:\n        user = User.objects.get(id=user_id)\n    except User.DoesNotExist:\n        return render(request, 'error.html', {'message': 'Không tìm thấy khách hàng!'})",
+        "detail": "store.views.checkout_views",
+        "documentation": {}
+    },
+    {
+        "label": "order_approval",
+        "kind": 2,
+        "importPath": "store.views.checkout_views",
+        "description": "store.views.checkout_views",
+        "peekOfCode": "def order_approval(request):\n    user_id = request.session.get('user_id')\n    role = request.session.get('role')\n    if not user_id or not role:\n        return render(request, 'login.html')\n    if role == 'seller':\n        # Xử lý danh sách đơn hàng cho người bán (ví dụ: tất cả đơn 'pending')\n        orders = Order.objects.all().order_by('-created_at')\n        # Phân loại theo trạng thái\n        orders_to_approve = orders.filter(status='pending')",
+        "detail": "store.views.checkout_views",
+        "documentation": {}
+    },
+    {
+        "label": "approve_order",
+        "kind": 2,
+        "importPath": "store.views.checkout_views",
+        "description": "store.views.checkout_views",
+        "peekOfCode": "def approve_order(request, order_id):\n    order = get_object_or_404(Order, id=order_id)\n    order.status = 'shipping'\n    order.save()\n    messages.success(request, f\"Đã phê duyệt đơn hàng #{order.id}.\")\n    return redirect('order_approval')\n@require_POST\ndef cancel_order(request, order_id):\n    order = get_object_or_404(Order, id=order_id)\n    order.status = 'cancelled'",
+        "detail": "store.views.checkout_views",
+        "documentation": {}
+    },
+    {
+        "label": "cancel_order",
+        "kind": 2,
+        "importPath": "store.views.checkout_views",
+        "description": "store.views.checkout_views",
+        "peekOfCode": "def cancel_order(request, order_id):\n    order = get_object_or_404(Order, id=order_id)\n    order.status = 'cancelled'\n    order.save()\n    messages.warning(request, f\"Đã huỷ đơn hàng #{order.id}.\")\n    return redirect('order_approval')\n@require_POST\ndef mark_delivered(request, order_id):\n    order = get_object_or_404(Order, id=order_id)\n    order.status = 'delivered'",
+        "detail": "store.views.checkout_views",
+        "documentation": {}
+    },
+    {
+        "label": "mark_delivered",
+        "kind": 2,
+        "importPath": "store.views.checkout_views",
+        "description": "store.views.checkout_views",
+        "peekOfCode": "def mark_delivered(request, order_id):\n    order = get_object_or_404(Order, id=order_id)\n    order.status = 'delivered'\n    order.save()\n    messages.success(request, f\"Đã giao đơn hàng #{order.id}.\")\n    return redirect('order_approval')",
+        "detail": "store.views.checkout_views",
+        "documentation": {}
+    },
+    {
+        "label": "add_product",
+        "kind": 2,
+        "importPath": "store.views.product_views",
+        "description": "store.views.product_views",
+        "peekOfCode": "def add_product(request):\n    if request.method == 'POST':\n        # Lấy user_id từ session\n        user_id = request.session.get('user_id')\n        if not user_id:\n            return redirect('login')  # Nếu chưa đăng nhập\n        user = User.objects.get(id=user_id)\n        # Lấy dữ liệu từ form\n        name = request.POST.get('name')\n        description = request.POST.get('description')",
+        "detail": "store.views.product_views",
+        "documentation": {}
+    },
+    {
+        "label": "product_list",
+        "kind": 2,
+        "importPath": "store.views.product_views",
+        "description": "store.views.product_views",
+        "peekOfCode": "def product_list(request):\n    query = request.GET.get('q', '')\n    category_id = request.GET.get('category', '')\n    categories = Category.objects.all()\n    products = Product.objects.all()\n    if query:\n        products = products.filter(name__icontains=query)\n    if category_id:\n        products = products.filter(category_id=category_id)\n    return render(request, 'product_list.html', {",
+        "detail": "store.views.product_views",
+        "documentation": {}
+    },
+    {
+        "label": "product_list_seller",
+        "kind": 2,
+        "importPath": "store.views.product_views",
+        "description": "store.views.product_views",
+        "peekOfCode": "def product_list_seller(request):\n    query = request.GET.get('q', '')\n    # Nếu là người bán thì đây là hiển thị thành dạnh bảng có doanh thu và lợi nhuận\n    if request.session.get('user_name') and request.session.get('role') == 'seller':\n        try:\n            user = User.objects.get(id=request.session['user_id'])\n        except User.DoesNotExist:\n            user = None\n        products = Product.objects.filter(user=user)\n        if query:",
+        "detail": "store.views.product_views",
+        "documentation": {}
+    },
+    {
+        "label": "product_detail",
+        "kind": 2,
+        "importPath": "store.views.product_views",
+        "description": "store.views.product_views",
+        "peekOfCode": "def product_detail(request, pk):\n    product = get_object_or_404(Product, pk=pk)\n    return render(request, 'product_detail.html', {'product': product})\n# View sửa sản phẩm của người bán\ndef edit_product(request, product_id):\n    product = get_object_or_404(Product, id=product_id)\n    if request.method == 'POST':\n        form = ProductForm(request.POST, instance=product)\n        if form.is_valid():\n            form.save()",
+        "detail": "store.views.product_views",
+        "documentation": {}
+    },
+    {
+        "label": "edit_product",
+        "kind": 2,
+        "importPath": "store.views.product_views",
+        "description": "store.views.product_views",
+        "peekOfCode": "def edit_product(request, product_id):\n    product = get_object_or_404(Product, id=product_id)\n    if request.method == 'POST':\n        form = ProductForm(request.POST, instance=product)\n        if form.is_valid():\n            form.save()\n            return redirect('product_list')\n    else:\n        form = ProductForm(instance=product)\n    return render(request, 'edit_product.html', {'form': form, 'product': product})",
+        "detail": "store.views.product_views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_product",
+        "kind": 2,
+        "importPath": "store.views.product_views",
+        "description": "store.views.product_views",
+        "peekOfCode": "def delete_product(request, product_id):\n    product = get_object_or_404(Product, id=product_id)\n    if request.method == 'POST':\n        product.delete()\n        return redirect('product_list')\n    return render(request, 'confirm_delete.html', {'product': product})",
+        "detail": "store.views.product_views",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "store.views.user_views",
+        "description": "store.views.user_views",
+        "peekOfCode": "def home(request):\n    best_sellers = Product.objects.order_by('-quantity_sold')[:40]\n    return render(request, 'home.html', {'best_sellers': best_sellers})\ndef logup_view(request):\n    if request.method == \"POST\":\n        # Lấy dữ liệu từ biểu mẫu\n        name = request.POST.get(\"name\")\n        telephone = request.POST.get(\"telephone\")\n        email = request.POST.get(\"email\")\n        password = request.POST.get(\"password\")",
+        "detail": "store.views.user_views",
+        "documentation": {}
+    },
+    {
+        "label": "logup_view",
+        "kind": 2,
+        "importPath": "store.views.user_views",
+        "description": "store.views.user_views",
+        "peekOfCode": "def logup_view(request):\n    if request.method == \"POST\":\n        # Lấy dữ liệu từ biểu mẫu\n        name = request.POST.get(\"name\")\n        telephone = request.POST.get(\"telephone\")\n        email = request.POST.get(\"email\")\n        password = request.POST.get(\"password\")\n        role = request.POST.get(\"role\")  # Lấy thông tin vai trò\n        if not telephone.isdigit() and len(telephone) != 10:\n            messages.error(request, 'Số điện thoại phải là 10 chữ số!')",
+        "detail": "store.views.user_views",
+        "documentation": {}
+    },
+    {
+        "label": "login_view",
+        "kind": 2,
+        "importPath": "store.views.user_views",
+        "description": "store.views.user_views",
+        "peekOfCode": "def login_view(request):\n    if request.method == \"POST\":\n        telephone = request.POST.get('telephone')\n        password = request.POST.get('password')\n        # Kiểm tra người dùng trong database\n        try:\n            user = User.objects.get(telephone=telephone) # lấy từ trong database ra\n            if user.password == password:  # Kiểm tra mật khẩu\n                #login(request, user)\n                request.session['user_id'] = user.id",
+        "detail": "store.views.user_views",
+        "documentation": {}
+    },
+    {
+        "label": "logout_view",
+        "kind": 2,
+        "importPath": "store.views.user_views",
+        "description": "store.views.user_views",
+        "peekOfCode": "def logout_view(request):\n    request.session.flush()  # Xóa toàn bộ session\n    messages.success(request, 'Bạn đã đăng xuất!')\n    return redirect('home')\ndef password_reset_view(request):\n    if request.method == 'POST':\n        email = request.POST.get('email')\n        # Thêm xử lý gửi email hoặc hiển thị thông báo ở đây nếu muốn\n        messages.success(request, \"Nếu email tồn tại, bạn sẽ nhận được hướng dẫn đặt lại mật khẩu.\")\n        return render(request, 'password_reset.html')",
+        "detail": "store.views.user_views",
+        "documentation": {}
+    },
+    {
+        "label": "password_reset_view",
+        "kind": 2,
+        "importPath": "store.views.user_views",
+        "description": "store.views.user_views",
+        "peekOfCode": "def password_reset_view(request):\n    if request.method == 'POST':\n        email = request.POST.get('email')\n        # Thêm xử lý gửi email hoặc hiển thị thông báo ở đây nếu muốn\n        messages.success(request, \"Nếu email tồn tại, bạn sẽ nhận được hướng dẫn đặt lại mật khẩu.\")\n        return render(request, 'password_reset.html')\n    return render(request, 'password_reset.html')",
+        "detail": "store.views.user_views",
+        "documentation": {}
+    },
+    {
+        "label": "ProductImageInline",
+        "kind": 6,
+        "importPath": "store.admin",
+        "description": "store.admin",
+        "peekOfCode": "class ProductImageInline(admin.TabularInline):\n    model = ProductImage\n    extra = 1\nclass ProductAdmin(admin.ModelAdmin):\n    inlines = [ProductImageInline]\nadmin.site.register(Product, ProductAdmin)",
+        "detail": "store.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAdmin",
+        "kind": 6,
+        "importPath": "store.admin",
+        "description": "store.admin",
+        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    inlines = [ProductImageInline]\nadmin.site.register(Product, ProductAdmin)",
+        "detail": "store.admin",
+        "documentation": {}
+    },
+    {
+        "label": "StoreConfig",
+        "kind": 6,
+        "importPath": "store.apps",
+        "description": "store.apps",
+        "peekOfCode": "class StoreConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'store'",
+        "detail": "store.apps",
+        "documentation": {}
+    },
+    {
+        "label": "categories_processor",
+        "kind": 2,
+        "importPath": "store.context_processors",
+        "description": "store.context_processors",
+        "peekOfCode": "def categories_processor(request):\n    categories = Category.objects.all()\n    return {'categories': categories}",
+        "detail": "store.context_processors",
+        "documentation": {}
+    },
+    {
+        "label": "ProductForm",
+        "kind": 6,
+        "importPath": "store.forms",
+        "description": "store.forms",
+        "peekOfCode": "class ProductForm(forms.ModelForm):\n    class Meta:\n        model = Product\n        fields = [\n            'category', 'name', 'description', 'price_purchase','price_selling', 'quantity_sold', 'quantity_left',  'discount','brand'\n        ]",
+        "detail": "store.forms",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class User(models.Model):\n    ROLE_CHOICES = [\n        ('seller', 'Seller'),\n        ('customer', 'Customer'),\n    ]\n    name = models.CharField(max_length=100)  # Tên người dùng\n    telephone = models.CharField(max_length=15, unique=True)  # Số điện thoại, không trùng\n    email = models.EmailField(unique=True)  # Email, không trùng lặp\n    password = models.CharField(max_length=255)  # Mật khẩu, nên được mã hóa\n    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='buyer')  # Vai trò người dùng",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class Category(models.Model):\n    name = models.CharField(max_length=255, unique=True)\n    def __str__(self):\n        return self.name\nclass Product(models.Model):\n    category = models.ForeignKey(Category, on_delete=models.CASCADE)\n    name = models.CharField(max_length=255)\n    description = models.TextField(blank=True, null=True)\n    brand = models.TextField(blank=True, null=True)\n    price_purchase = models.DecimalField(max_digits=10, decimal_places=2)",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class Product(models.Model):\n    category = models.ForeignKey(Category, on_delete=models.CASCADE)\n    name = models.CharField(max_length=255)\n    description = models.TextField(blank=True, null=True)\n    brand = models.TextField(blank=True, null=True)\n    price_purchase = models.DecimalField(max_digits=10, decimal_places=2)\n    price_selling = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)\n    quantity_sold = models.PositiveIntegerField(default=0, blank=True, null=True)\n    quantity_left = models.PositiveIntegerField(default=0)\n    discount = models.FloatField(default=0.0)",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductImage",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class ProductImage(models.Model):\n    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')\n    image = models.ImageField(upload_to='products/')\n    def __str__(self):\n        return f\"Ảnh của {self.product.name}\"\nclass Address(models.Model):\n    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='addresses')\n    city = models.CharField(max_length=100, default= '')\n    district = models.CharField(max_length=100, default= '')\n    ward = models.CharField(max_length=100,default='')",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Address",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class Address(models.Model):\n    user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='addresses')\n    city = models.CharField(max_length=100, default= '')\n    district = models.CharField(max_length=100, default= '')\n    ward = models.CharField(max_length=100,default='')\n    street = models.CharField(max_length=100, default='')\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return f\"{self.street}, {self.ward}, {self.district}, {self.city}\"",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Order",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class Order(models.Model):\n    STATUS_CHOICES = [\n        ('pending', 'Chờ xác nhận'),\n        ('shipping', 'Đang giao'),\n        ('delivered', 'Đã giao'),\n        ('cancelled', 'Đã huỷ'),\n    ]\n    PAYMENT_METHODS = [\n        ('cash', 'Thanh toán khi nhận hàng'),\n        ('card', 'Thẻ ngân hàng'),",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "OrderItem",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class OrderItem(models.Model):\n    order = models.ForeignKey(Order, on_delete=models.CASCADE)\n    product = models.ForeignKey(Product, on_delete=models.CASCADE)\n    quantity = models.PositiveIntegerField()\n    created_at = models.DateTimeField(auto_now_add=True)\n    price_at_order = models.DecimalField(max_digits=10, decimal_places=2)  # Giá tại thời điểm đặt hàng\n    def __str__(self):\n        return f\"{self.quantity} x {self.product.name} in Order {self.order.id}\"\nclass Cart(models.Model):\n    user = models.ForeignKey('User', on_delete=models.CASCADE)",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "Cart",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class Cart(models.Model):\n    user = models.ForeignKey('User', on_delete=models.CASCADE)\n    created_at = models.DateTimeField(auto_now_add=True)\n    def __str__(self):\n        return f\"Giỏ hàng của {self.user.name}\"\n    def total(self):\n        return sum(item.subtotal() for item in self.items.all())\nclass CartItem(models.Model):\n    STATUS_CHOICES = [\n        ('active', 'Đang trong giỏ'),",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "CartItem",
+        "kind": 6,
+        "importPath": "store.models",
+        "description": "store.models",
+        "peekOfCode": "class CartItem(models.Model):\n    STATUS_CHOICES = [\n        ('active', 'Đang trong giỏ'),\n        ('removed', 'Đã xóa khỏi giỏ'),\n    ]\n    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')\n    product = models.ForeignKey(Product, on_delete=models.CASCADE)\n    quantity = models.PositiveIntegerField(default=1)\n    is_selected = models.BooleanField(default=True)  # Được chọn để mua hay không\n    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')",
+        "detail": "store.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "store.urls",
+        "description": "store.urls",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    path(\"logup/\", views.logup_view, name=\"logup\"),  \n    path('login/', views.login_view, name= \"login\"),\n    path('logout/', views.logout_view, name='logout'),\n    path('password-reset/', views.password_reset_view, name='password_reset'),\n    # thêm sản phẩm \n    path('add_product/', views.add_product, name='product_add'),\n    # thêm danh mục sản phẩm\n    path(\"category/add_category/\", views.add_category_view, name=\"add_category\"),",
+        "detail": "store.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "web_ecommerce.asgi",
+        "description": "web_ecommerce.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "web_ecommerce.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-1t4argr(d$6frbddw)+51v-pa@j5o%^ot@op!ucazf)w1qsyxc'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['35.178.14.180','localhost','127.0.0.1']\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-1t4argr(d$6frbddw)+51v-pa@j5o%^ot@op!ucazf)w1qsyxc'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['35.178.14.180','localhost','127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['35.178.14.180','localhost','127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "ALLOWED_HOSTS = ['35.178.14.180','localhost','127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'django.contrib.humanize',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'django.contrib.humanize',\n    'store',\n    'rest_framework',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'web_ecommerce.urls'",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "ROOT_URLCONF = 'web_ecommerce.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'web_ecommerce.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'ecommerce',     # ví dụ: 'my_app_db'\n        'USER': 'root',           # ví dụ: 'root'\n        'PASSWORD': 'doan123',       # ví dụ: '123456'\n        'HOST': '127.0.0.1',                # hoặc IP nếu là remote nếu tạo user trong mysql là doan@% thì phải nhập ip vì doan@localhost và doan@% là khác nhau",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': 'ecommerce',     # ví dụ: 'my_app_db'\n        'USER': 'root',           # ví dụ: 'root'\n        'PASSWORD': 'doan123',       # ví dụ: '123456'\n        'HOST': '127.0.0.1',                # hoặc IP nếu là remote nếu tạo user trong mysql là doan@% thì phải nhập ip vì doan@localhost và doan@% là khác nhau\n        'PORT': '3306',                     # cổng mặc định của MySQL\n        'OPTIONS': {\n            'init_command': \"SET sql_mode='STRICT_TRANS_TABLES'\"",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nimport os",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nimport os\nMEDIA_URL = '/media/'",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nimport os\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nimport os\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nAUTHENTICATION_BACKENDS = [",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nimport os\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',  # có thể viết custom backend khác nếu cần\n]\nimport os\nfrom pathlib import Path\nBASE_DIR = Path(__file__).resolve().parent.parent",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',  # có thể viết custom backend khác nếu cần\n]\nimport os\nfrom pathlib import Path\nBASE_DIR = Path(__file__).resolve().parent.parent\nSTATIC_URL = '/static/'\nSTATICFILES_DIRS = [",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nAUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',  # có thể viết custom backend khác nếu cần\n]\nimport os\nfrom pathlib import Path\nBASE_DIR = Path(__file__).resolve().parent.parent\nSTATIC_URL = '/static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTHENTICATION_BACKENDS",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "AUTHENTICATION_BACKENDS = [\n    'django.contrib.auth.backends.ModelBackend',  # có thể viết custom backend khác nếu cần\n]\nimport os\nfrom pathlib import Path\nBASE_DIR = Path(__file__).resolve().parent.parent\nSTATIC_URL = '/static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n]",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nSTATIC_URL = '/static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"  # Chỉ dùng khi collectstatic (production)\nLOGIN_URL = '/login/'\nLOGIN_REDIRECT_URL = '/cart/'\nLOGOUT_REDIRECT_URL = '/'\nfrom django.contrib.messages import constants as messages",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "STATIC_URL = '/static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"  # Chỉ dùng khi collectstatic (production)\nLOGIN_URL = '/login/'\nLOGIN_REDIRECT_URL = '/cart/'\nLOGOUT_REDIRECT_URL = '/'\nfrom django.contrib.messages import constants as messages\nMESSAGE_TAGS = {",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "STATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n]\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"  # Chỉ dùng khi collectstatic (production)\nLOGIN_URL = '/login/'\nLOGIN_REDIRECT_URL = '/cart/'\nLOGOUT_REDIRECT_URL = '/'\nfrom django.contrib.messages import constants as messages\nMESSAGE_TAGS = {\n    messages.DEBUG: 'secondary',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"  # Chỉ dùng khi collectstatic (production)\nLOGIN_URL = '/login/'\nLOGIN_REDIRECT_URL = '/cart/'\nLOGOUT_REDIRECT_URL = '/'\nfrom django.contrib.messages import constants as messages\nMESSAGE_TAGS = {\n    messages.DEBUG: 'secondary',\n    messages.INFO: 'info',\n    messages.SUCCESS: 'success',\n    messages.WARNING: 'warning',",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_URL",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "LOGIN_URL = '/login/'\nLOGIN_REDIRECT_URL = '/cart/'\nLOGOUT_REDIRECT_URL = '/'\nfrom django.contrib.messages import constants as messages\nMESSAGE_TAGS = {\n    messages.DEBUG: 'secondary',\n    messages.INFO: 'info',\n    messages.SUCCESS: 'success',\n    messages.WARNING: 'warning',\n    messages.ERROR: 'danger',  # error sẽ có class alert-danger",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGIN_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "LOGIN_REDIRECT_URL = '/cart/'\nLOGOUT_REDIRECT_URL = '/'\nfrom django.contrib.messages import constants as messages\nMESSAGE_TAGS = {\n    messages.DEBUG: 'secondary',\n    messages.INFO: 'info',\n    messages.SUCCESS: 'success',\n    messages.WARNING: 'warning',\n    messages.ERROR: 'danger',  # error sẽ có class alert-danger\n}",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGOUT_REDIRECT_URL",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "LOGOUT_REDIRECT_URL = '/'\nfrom django.contrib.messages import constants as messages\nMESSAGE_TAGS = {\n    messages.DEBUG: 'secondary',\n    messages.INFO: 'info',\n    messages.SUCCESS: 'success',\n    messages.WARNING: 'warning',\n    messages.ERROR: 'danger',  # error sẽ có class alert-danger\n}",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MESSAGE_TAGS",
+        "kind": 5,
+        "importPath": "web_ecommerce.settings",
+        "description": "web_ecommerce.settings",
+        "peekOfCode": "MESSAGE_TAGS = {\n    messages.DEBUG: 'secondary',\n    messages.INFO: 'info',\n    messages.SUCCESS: 'success',\n    messages.WARNING: 'warning',\n    messages.ERROR: 'danger',  # error sẽ có class alert-danger\n}",
+        "detail": "web_ecommerce.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "web_ecommerce.urls",
+        "description": "web_ecommerce.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('', include('store.urls')), # phải có dấu cách sau dấu phẩy ko là lỗi\n]",
+        "detail": "web_ecommerce.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "web_ecommerce.wsgi",
+        "description": "web_ecommerce.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "web_ecommerce.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web_ecommerce.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]
